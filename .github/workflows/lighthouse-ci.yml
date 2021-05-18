@@ -1,3 +1,5 @@
+# Triggered when code is pushed to any branch in a repository
+on: push
 jobs:
   lhci:
     name: Lighthouse
