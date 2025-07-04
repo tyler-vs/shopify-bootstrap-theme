@@ -1,0 +1,54 @@
+{%- comment -%}
+  Search section.
+{%- endcomment -%}
+<section>
+  {%- if section.settings.title != blank -%}
+    <h2>{{ section.settings.title | escape }}</h2>
+  {%- endif -%}
+  {%- if section.settings.text != blank -%}
+    <div class="row">
+      <div class="col">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  {%- endif -%}
+  <form action="/search" method="get" role="search">
+    <label for="Search" class="label-hidden">
+      {{ 'general.search.placeholder' | t }}
+    </label>
+    <input type="search"
+           name="q"
+           id="Search"
+           value="{{ search.terms | escape }}"
+           placeholder="{{ 'general.search.placeholder' | t }}">
+    <button type="submit" class="button">
+      {% include 'icon-search' %}
+      <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+    </button>
+  </form>
+</section>
+
+{% schema %}
+  {
+    "name": "Search",
+    "class": "container pt-3",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Talk about your brand"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      }
+    ],
+    "presets": [{
+        "name": "Search",
+        "category": "Search"
+    }]
+  }
+{% endschema %}
