@@ -17,6 +17,11 @@
       </div>
     </div>
   {%- endif -%}
+  {%- if section.settings.link != blank -%}
+    <div class="row">
+      <a href="{{ section.settings.link }}" class="btn btn-secondary">{{ section.settings.link-text }}</a>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
@@ -35,6 +40,18 @@
         "id": "text",
         "label": "Text",
         "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "link-text",
+        "label": "Link Text",
+        "default": "Button"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "Link",
+        "default": "/collections"
       }
     ],
     "presets": [{
