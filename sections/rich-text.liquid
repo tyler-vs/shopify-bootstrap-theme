@@ -17,6 +17,11 @@
       </div>
     </div>
   {%- endif -%}
+  {%- if section.settings.link != blank -%}
+    <div class="row">
+      <a href="{{ section.settings.link }}" class="btn btn-secondary">{{ section.settings.link-text }}</a>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
